@@ -1,4 +1,9 @@
-function checkSpam() {
+const scanBtn =
+document.getElementById("scanBtn");
+
+scanBtn.addEventListener("click", checkSpam);
+
+function checkSpam(){
 
     let text =
     document.getElementById("message")
@@ -12,19 +17,21 @@ function checkSpam() {
         "offer",
         "prize",
         "urgent",
-        "kyc",
         "cashback",
         "winner",
         "claim",
         "login",
         "payment",
-        "credit card"
+        "credit card",
+        "kyc"
     ];
 
     let detected = [];
 
-    document.getElementById("loading")
-    .style.display = "block";
+    let loading =
+    document.getElementById("loading");
+
+    loading.style.display = "block";
 
     setTimeout(function(){
 
@@ -40,6 +47,7 @@ function checkSpam() {
         detected.length * 15;
 
         if(spamScore > 100){
+
             spamScore = 100;
         }
 
@@ -52,9 +60,6 @@ function checkSpam() {
         let detectedWords =
         document.getElementById("detectedWords");
 
-        let sound =
-        document.getElementById("alarmSound");
-
         if(detected.length > 0){
 
             result.innerHTML =
@@ -63,7 +68,8 @@ function checkSpam() {
             result.style.color = "red";
 
             percentage.innerHTML =
-            "Threat Level : " + spamScore + "%";
+            "Threat Level : " +
+            spamScore + "%";
 
             detectedWords.innerHTML =
             "Detected Words : " +
@@ -72,26 +78,11 @@ function checkSpam() {
             document.body.classList
             .add("spam-alert");
 
-            // Voice Alert
             let speech =
             new SpeechSynthesisUtterance(
-            "Warning! Spam message detected");
+            "Warning. Spam message detected");
 
             speechSynthesis.speak(speech);
-
-            // Play Siren
-            sound.currentTime = 0;
-
-            sound.play();
-
-            // Stop after 5 seconds
-            setTimeout(function(){
-
-                sound.pause();
-
-                sound.currentTime = 0;
-
-            }, 5000);
 
         }
         else{
@@ -111,8 +102,7 @@ function checkSpam() {
             .remove("spam-alert");
         }
 
-        document.getElementById("loading")
-        .style.display = "none";
+        loading.style.display = "none";
 
-    }, 1500);
+    },1500);
 }
