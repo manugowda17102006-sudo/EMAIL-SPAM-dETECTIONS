@@ -1,41 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+<div class="container">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Spam Shield</title>
+    <h1>🛡 AI Spam Shield</h1>
 
-    <link rel="stylesheet" href="style.css">
-</head>
+    <textarea
+        id="message"
+        placeholder="Type message here..."></textarea>
 
-<body>
+    <button id="scanBtn">
+        Scan Message
+    </button>
 
-    <div class="container">
-
-        <h1>🛡 AI Spam Shield</h1>
-
-        <textarea
-            id="message"
-            placeholder="Type message here..."></textarea>
-
-        <button id="scanBtn">
-            Scan Message
-        </button>
-
-        <div class="loading" id="loading">
-            Scanning Message...
-        </div>
-
-        <h2 id="result"></h2>
-
-        <h3 id="percentage"></h3>
-
-        <p id="detectedWords"></p>
-
+    <div class="loading" id="loading">
+        Scanning Message...
     </div>
 
-    <script src="script.js"></script>
+    <h2 id="result"></h2>
 
-</body>
-</html>
+    <h3 id="percentage"></h3>
+
+    <p id="detectedWords"></p>
+
+</div>
