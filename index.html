@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Spam Shield</title>
+
+    <!-- CSS FILE -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🛡 AI Spam Shield</h1>
+
+    <textarea id="message"
+    placeholder="Type message here..."
+    oninput="checkSpam()"></textarea>
+
+    <button onclick="checkSpam()">
+        Scan Message
+    </button>
+
+    <div class="loading" id="loading">
+        Scanning Message...
+    </div>
+
+    <h2 id="result"></h2>
+
+    <h3 id="percentage"></h3>
+
+    <p id="detectedWords"></p>
+
+    <audio id="alarmSound"
+    src="https://files.catbox.moe/ui8zec.mp3">
+    </audio>
+
+</div>
+
+<!-- JAVASCRIPT FILE -->
+<script src="script.js"></script>
+
+</body>
+</html>
